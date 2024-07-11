@@ -302,6 +302,9 @@ class ModelChain:
 
     transposition_model : str, default 'haydavies'
         Passed to system.get_irradiance.
+    
+    model_perez : str, default None
+        Passed to system.get_irradiance.
 
     solar_position_method : str, default 'nrel_numpy'
         Passed to location.get_solarposition.
@@ -358,6 +361,7 @@ class ModelChain:
     def __init__(self, system, location,
                  clearsky_model='ineichen',
                  transposition_model='haydavies',
+                 model_perez = 'allsitescomposite1990',
                  solar_position_method='nrel_numpy',
                  airmass_model='kastenyoung1989',
                  dc_model=None, ac_model=None, aoi_model=None,
@@ -371,6 +375,7 @@ class ModelChain:
         self.location = location
         self.clearsky_model = clearsky_model
         self.transposition_model = transposition_model
+        self.model_perez = model_perez
         self.solar_position_method = solar_position_method
         self.airmass_model = airmass_model
 
@@ -1433,7 +1438,8 @@ class ModelChain:
             _tuple_from_dfs(self.results.weather, 'dhi'),
             albedo=self.results.albedo,
             airmass=self.results.airmass['airmass_relative'],
-            model=self.transposition_model
+            model=self.transposition_model,
+            model_perez = self.model_perez
         )
 
         return self
