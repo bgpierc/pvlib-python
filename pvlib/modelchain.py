@@ -361,7 +361,7 @@ class ModelChain:
     def __init__(self, system, location,
                  clearsky_model='ineichen',
                  transposition_model='haydavies',
-                 model_perez = 'allsitescomposite1990',
+                 model_perez='allsitescomposite1990',
                  solar_position_method='nrel_numpy',
                  airmass_model='kastenyoung1989',
                  dc_model=None, ac_model=None, aoi_model=None,
