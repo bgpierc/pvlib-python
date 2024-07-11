@@ -303,7 +303,7 @@ class ModelChain:
     transposition_model : str, default 'haydavies'
         Passed to system.get_irradiance.
     
-    model_perez : str, default None
+    model_perez : str, default 'allsitescomposite1990'
         Passed to system.get_irradiance.
 
     solar_position_method : str, default 'nrel_numpy'
